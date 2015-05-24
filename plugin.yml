@@ -1,0 +1,4 @@
+name: BarrysPVPPlugin
+main: me.Barry1990.barryspvpplugin
+version: 0.0.1
+commands:
