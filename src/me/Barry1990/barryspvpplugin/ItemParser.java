@@ -23,7 +23,7 @@ public class ItemParser {
 	}
 	
 	public void createItem(Material material, int amount) {		
-		this.itemstack = new ItemStack(Material.GOLD_INGOT, amount);		
+		this.itemstack = new ItemStack(material, amount);		
 	}
 	
 	public void setDisplayName(String itemname) {

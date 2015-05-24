@@ -16,7 +16,7 @@ public class InventoryGenerator {
 		 this.generateItems();
 	}
 	
-	public void generateItems() {
+	private void generateItems() {
 		ItemParser ip = new ItemParser();
 		for (int i = 0; i < this.chestsize; i++) {
 			//TODO: Randomize the items
@@ -24,5 +24,9 @@ public class InventoryGenerator {
 			
 		}
 				
+	}
+	
+	public Inventory getInventory() {
+		return this.inventory;
 	}
 }
