@@ -1,7 +1,13 @@
 package me.Barry1990.barryspvpplugin;
 
+import java.util.List;
+import java.util.Random;
+
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.material.MaterialData;
+import org.spigotmc.Metrics;
 
 
 public class ItemParser {
@@ -20,8 +26,25 @@ public class ItemParser {
 		this.itemstack = new ItemStack(Material.GOLD_INGOT, amount);		
 	}
 	
-	public void addMataData() {
-		//this.itemstack.setData(data);
+	public void setDisplayName(String itemname) {
+		ItemMeta im = this.itemstack.getItemMeta();
+		im.setDisplayName(itemname);
+		this.itemstack.setItemMeta(im);
 	}
 	
+	public void setItemLore(List<String> itemlore) {
+		ItemMeta im = this.itemstack.getItemMeta();
+		im.setLore(itemlore);
+		this.itemstack.setItemMeta(im);
+	}
+	
+	public static Material getRandomMaterial() {
+		Random random = new Random();
+        int x = random.nextInt(Material.class.getEnumConstants().length);
+        return Material.class.getEnumConstants()[x];
+    }
+	
+	public ItemStack getItemStack() {
+		return this.itemstack;
+	}
 }
