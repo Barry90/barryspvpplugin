@@ -6,9 +6,6 @@ import java.util.Random;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.material.MaterialData;
-import org.spigotmc.Metrics;
-
 
 public class ItemParser {
 

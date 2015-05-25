@@ -2,6 +2,7 @@ package me.Barry1990.barryspvpplugin;
 
 import java.util.Random;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -19,6 +20,14 @@ public class ChestSpawner extends Thread {
 
 	public ChestSpawner(World world){
 		this.w = world;
+	}
+	
+	public ChestSpawner(BarrysPVPPlugin plugin, String worldname) throws PVPPluginException{
+		if (Bukkit.getWorld(worldname) == null) {
+			throw new PVPPluginException(plugin, "Es kann keine Welt mit dem Namen \"" + worldname +"\" gefunden werden.");
+		}
+		
+		this.w = Bukkit.getWorld(worldname);
 	}
 	
 	@Override
@@ -44,7 +53,7 @@ public class ChestSpawner extends Thread {
 				
 			}
 			
-			//TODO: test for chest  x ± 1 ; y ± 1
+			//TODO: test for chest  x ï¿½ 1 ; y ï¿½ 1
 			
 			if (chestloc != null) {
 				this.w.getBlockAt(chestloc).setType(Material.CHEST);				
