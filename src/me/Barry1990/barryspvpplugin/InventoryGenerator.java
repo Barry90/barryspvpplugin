@@ -17,9 +17,10 @@ public class InventoryGenerator {
 	}
 	
 	private void generateItems() {
-		ItemParser ip = new ItemParser();
+		ItemElement ip = new ItemElement();
 		for (int i = 0; i < this.chestsize; i++) {
 			//TODO: Randomize the items
+			ip.createItem(ItemElement.getRandomMaterial(),1);
 			this.inventory.setItem(i, ip.getItemStack());
 			
 		}

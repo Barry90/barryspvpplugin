@@ -1,9 +1,16 @@
 package me.Barry1990.barryspvpplugin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -35,10 +42,33 @@ public class BarrysPVPPlugin extends JavaPlugin {
 			return;			
 		}
 		
-		//chestspawner.start();
+		
+		//TESTBEREICH
+		/*
+
+		ItemStack a = new ItemStack(Material.TORCH);
+		a.setAmount(12);
+		a.getItemMeta().setDisplayName("This is a Torch");
+		
+		ItemParser ie = new ItemParser();
+		this.getLogger().info(ie.itemStackToString(a));
 		
 		
-		//this.getDataFolder()
+		ItemStack b = new ItemStack(Material.DIAMOND_HELMET);
+		b.setAmount(1);
+		b.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
+		b.addEnchantment(Enchantment.OXYGEN, 1);
+		b.addEnchantment(Enchantment.DURABILITY, 2);
+		List<String> lore = new ArrayList<String>();
+		lore.add(ChatColor.WHITE+"Reload all Plugins");
+		ItemMeta im = b.getItemMeta();
+		im.setDisplayName("Götterhelm");
+		im.setLore(lore);
+		b.setItemMeta(im);
+		
+		this.getLogger().info(ie.itemStackToString(b));
+		*/
+
 	}
 	
 	@Override
