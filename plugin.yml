@@ -1,4 +1,7 @@
 name: BarrysPVPPlugin
-main: me.Barry1990.barryspvpplugin
+main: me.Barry1990.barryspvpplugin.BarrysPVPPlugin
 version: 0.0.1
 commands:
+  test:
+    aliases: [t]
+  test:

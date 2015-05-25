@@ -8,15 +8,17 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Chest;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.scheduler.BukkitRunnable;
 
 
-public class ChestSpawner extends Thread {
+public class ChestSpawner extends BukkitRunnable {
 	
 	private Chest pvpchest = null;
 	private Random random = new Random();
 	private World w;
+	private BarrysPVPPlugin p;
 	
-	private final int minheight = 30;
+	private final int minheight = 1;
 
 	public ChestSpawner(World world){
 		this.w = world;
@@ -28,6 +30,7 @@ public class ChestSpawner extends Thread {
 		}
 		
 		this.w = Bukkit.getWorld(worldname);
+		this.p = plugin;
 	}
 	
 	@Override
@@ -37,7 +40,7 @@ public class ChestSpawner extends Thread {
 			//Random Y,Z Coordinates
 			int x = randInt(-50, 50);
 			int z = randInt(-50, 50);
-			
+			p.getLogger().info(" dam dam");
 			//find the first solid block
 			Location chestloc = null;
 			for (int y = 255; y > this.minheight; y--) {
@@ -46,6 +49,7 @@ public class ChestSpawner extends Thread {
 					
 					if (this.IsSolid(this.w.getBlockAt(x, y-1, z).getType()) ) {					
 						chestloc = new Location(this.w, x, y, z);
+						p.getLogger().info("Kiste bei x: " + x +" y: "+y+" z: "+z);
 						break;
 					}
 					
@@ -57,14 +61,17 @@ public class ChestSpawner extends Thread {
 			
 			if (chestloc != null) {
 				this.w.getBlockAt(chestloc).setType(Material.CHEST);				
-				
+				p.getLogger().info("Kiste erschaffen");
 				pvpchest = (Chest) chestloc.getBlock().getState();				
 				Inventory inv = pvpchest.getInventory();
-				
 				InventoryGenerator iventorygenerator = new InventoryGenerator();
+				p.getLogger().info("Inventar erstellt");
 				
 				inv.setContents(iventorygenerator.getInventory().getContents());
+				p.getLogger().info("Inventar gesetzt");
+				break;
 			}
+			
 			
 		}
 		

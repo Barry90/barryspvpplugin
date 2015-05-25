@@ -1,6 +1,9 @@
 package me.Barry1990.barryspvpplugin;
 
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -32,9 +35,37 @@ public class BarrysPVPPlugin extends JavaPlugin {
 			return;			
 		}
 		
-		chestspawner.start();
+		//chestspawner.start();
 		
 		
 		//this.getDataFolder()
+	}
+	
+	@Override
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if (!(sender instanceof Player)) {
+			return true;
+		}
+
+		Player player = (Player) sender;
+		
+		if (command.getName().equalsIgnoreCase("test")) {
+			if (this.chestspawner != null){
+				this.getLogger().info("okay");
+				
+				//TODO: START/STOP the Task
+				/* not working */
+				try {
+					chestspawner.runTaskTimer(this, 0L, (long) 20*30);
+				} catch (IllegalStateException e) {
+					chestspawner.cancel();
+				}
+				
+				player.sendMessage("running test");
+			}
+			return true;
+		}
+		
+		return false;
 	}
 }

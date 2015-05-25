@@ -28,7 +28,7 @@ public class Settings {
 		FileConfiguration config = plugin.getConfig();
 		File file = new File(plugin.getDataFolder(),configfilename);
 		
-		Settings.worldname = "pvp_world";	
+		Settings.worldname = "world";	
 		
 		config.set(Settings.path_worldname,Settings.worldname);
 		

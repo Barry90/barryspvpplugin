@@ -9,11 +9,11 @@ import org.bukkit.inventory.Inventory;
 public class InventoryGenerator {
 
 	private Inventory inventory = null;
-	private final int chestsize = 24;
+	private final int chestsize = 27;
 	
 	public InventoryGenerator() {
-		 Bukkit.createInventory(null, chestsize, "");
-		 this.generateItems();
+		this.inventory = Bukkit.createInventory(null, chestsize, "");
+		this.generateItems();
 	}
 	
 	private void generateItems() {
